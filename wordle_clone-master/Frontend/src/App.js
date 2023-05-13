@@ -57,6 +57,7 @@ export const WordleContext = createContext()
       }
   
       alert("You Won");
+      window.location.href = "http://localhost:3000/highscore";
     }
    
 

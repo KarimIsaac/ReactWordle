@@ -37,6 +37,18 @@
   tr:hover {
     background-color: #ddd;
   }
+  .play-again{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(7, 242, 26);
+    position: relative;
+    left: 50%;
+    top: 50px;
+  }
+
+  .play-again:hover{
+    background-color: red;
+  }
 </style>
     <title>High Scores</title>
   </head>
@@ -60,5 +72,6 @@
         {{/each}}
       </tbody>
     </table>
+    <button class="play-again" onclick="window.location.href='http://localhost:5050'">Play Again</button>
   </body>
 </html>
