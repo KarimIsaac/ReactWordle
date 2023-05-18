@@ -13,6 +13,7 @@
     "bugs": {},
     "dependencies": {
         "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
         "express": "^4.17.3",
         "express-handlebars": "^7.0.2",
         "fs": "^0.0.1-security",

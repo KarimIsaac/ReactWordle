@@ -1,6 +1,6 @@
 export const dictionary =[
     "david",
-    "lorim",
-    "mappe",
+    "karim",
+    "johan",
 
  ]

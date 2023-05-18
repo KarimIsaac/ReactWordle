@@ -39,7 +39,7 @@ export const WordleContext = createContext()
       const data = {
         name: playerName,
         guesses: guessCount,
-        time: endTime.getTime() 
+        time: (endTime.getTime() - startTime.getTime()) / 1000 
       };
   
       try {
@@ -80,6 +80,7 @@ export const WordleContext = createContext()
       return;
     }
     setShowPage(true);
+    setStartTime(new Date());
   }
   function handleNameChange(event) {
     setPlayerName(event.target.value);
@@ -89,6 +90,8 @@ export const WordleContext = createContext()
     <>
       {!showPage && (
         <div className='start-game'>
+          <h1>Hint:</h1>
+          <p>The words : karim, david, johan</p>
           <label>
             Enter your name:
             <input className='start-label' type="text" value={playerName} onChange={handleNameChange} />
