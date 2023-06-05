@@ -21,7 +21,7 @@ export const WordleContext = createContext()
   const [gameOver, setGameOver] = useState(false);
   const [endTime, setEndTime] = useState(null);
   const [guessCount, setGuessCount] = useState(0); 
-
+  const [startTime, setStartTime] = useState(null);
   function guessTheWord(char) {
     if (guessWord.length === 5) return; 
     setGuessWord(guessWord.concat(char));
