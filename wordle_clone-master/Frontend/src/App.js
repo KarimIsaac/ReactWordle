@@ -14,7 +14,7 @@ export const WordleContext = createContext()
  function App() {
   const [showPage, setShowPage] = useState(false);
   const [playerName, setPlayerName] = useState("");
-  const [word, setWord] = useState(_.sample(dictionary).toUpperCase());
+
   const [completedRows, setCompletedRows] = useState([]);
   const [guessWord, setGuessWord] = useState("");
   const [currentRow, setCurrentRow] = useState(0);
@@ -22,10 +22,12 @@ export const WordleContext = createContext()
   const [endTime, setEndTime] = useState(null);
   const [guessCount, setGuessCount] = useState(0); 
   const [startTime, setStartTime] = useState(null);
-  function guessTheWord(char) {
-    if (guessWord.length === 5) return; 
-    setGuessWord(guessWord.concat(char));
-  }
+  const [selectedLetters, setSelectedLetters] = useState(3);
+const [word, setWord] = useState(""); 
+function guessTheWord(char) {
+  if (guessWord.length === selectedLetters) return;
+  setGuessWord(guessWord.concat(char));
+}
 
   async function pressEnter() {
     if (gameOver) return;
@@ -81,6 +83,7 @@ export const WordleContext = createContext()
     }
     setShowPage(true);
     setStartTime(new Date());
+    setWord(_.sample(dictionary.filter(word => word.length === selectedLetters)).toUpperCase());
   }
   function handleNameChange(event) {
     setPlayerName(event.target.value);
@@ -96,6 +99,11 @@ export const WordleContext = createContext()
             Enter your name:
             <input className='start-label' type="text" value={playerName} onChange={handleNameChange} />
           </label>
+          <select value={selectedLetters} onChange={(e) => setSelectedLetters(parseInt(e.target.value))}>
+            <option value={3}>3 Letters</option>
+            <option value={4}>4 Letters</option>
+            <option value={5}>5 Letters</option>
+          </select>
           <button className='start-button' onClick={startGame}>Start Game</button>
           
 
