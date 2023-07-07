@@ -46,6 +46,7 @@ app.post('/highscore', async (req, res) => {
       name,
       time,
       guesses,
+      selectedLetters
     });
     res.status(201).json(score);
   } catch (error) {

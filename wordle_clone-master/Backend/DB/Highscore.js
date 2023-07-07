@@ -6,7 +6,8 @@ const highscoreSchema = new mongoose.Schema({
       required: true
     },
     guesses: Number,
-    time: Number
+    time: Number,
+    selectedLetters: Number 
   });
 
 export default mongoose.model("Highscore", highscoreSchema)

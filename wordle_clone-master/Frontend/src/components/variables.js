@@ -3,6 +3,6 @@ export const dictionary =[
     "karim",
     "johan",
     "mano",
-    "bar"
-    
+    "bar",
+    "bab"
  ]
