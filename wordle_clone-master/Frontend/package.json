@@ -71,7 +71,7 @@
 
     
 
-  "start": "set PORT=5050 && react-scripts start" ,
+  "start": "set PORT=5080 && react-scripts start" ,
   
   "dev": "concurrently \"npm start\" \"cd ../backend && npm start\"",
 
