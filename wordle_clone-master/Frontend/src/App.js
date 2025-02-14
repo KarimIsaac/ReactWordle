@@ -44,7 +44,7 @@ function guessTheWord(char) {
       };
   
       try {
-        const response = await fetch("http://localhost:3000/highscore", {
+        const response = await fetch("http://localhost:5000/api/highscore", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -58,7 +58,7 @@ function guessTheWord(char) {
       }
   
       alert("You Won");
-      window.location.href = "http://localhost:3000/highscore";
+      window.location.href = "http://localhost:5080/highscore";
     }
    
 

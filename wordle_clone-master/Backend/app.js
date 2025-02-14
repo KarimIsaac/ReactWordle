@@ -5,11 +5,11 @@ import { marked } from 'marked';
 import path from 'path';
 import cors from 'cors';
 import mongoose from "mongoose";
-mongoose.connect('mongodb+srv://karim:karim@cluster55.vvrmnzh.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://karim:dany1500@cluster1.tyihr.mongodb.net/?retryWrites=true&w=majority')
   .then(() => {
     console.log('Connected to MongoDB Atlas.')
-    app.listen(3000, () => {
-      console.log('Server is running on port 3000');
+    app.listen(5000, () => {
+      console.log('Server is running on port 5000');
     });
   })
   .catch((err) => {
@@ -38,7 +38,7 @@ apiRoute.get('/highscore', async (req, res) => {
   res.json(scores);
 });
 
-app.post('/highscore', async (req, res) => {
+apiRoute.post('/highscore', async (req, res) => {
   const { name, time, guesses } = req.body;
 
   try {
@@ -59,7 +59,7 @@ app.post('/highscore', async (req, res) => {
 
 app.get("/highscore", async (req, res) => {
   try {
-    const response = await fetch('http://localhost:3000/api/highscore');
+    const response = await fetch('http://localhost:5000/api/highscore');
     const scores = await response.json();
     res.render("./partials/highscore", { scores });
   } catch (error) {
@@ -68,9 +68,7 @@ app.get("/highscore", async (req, res) => {
   }
 });
 
-app.get("/highscore", async (req, res) => {
-  res.render("./partials/highscore");
-});
+
 
 app.get("/home", async (req, res) => {
   res.render("./partials/home");
