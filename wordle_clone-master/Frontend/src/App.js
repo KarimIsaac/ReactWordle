@@ -1,10 +1,11 @@
 import './App.css';
-import Board  from "./components/Board.js"
+import Board  from "./components/Board/Board.js"
 import { createContext, useState } from 'react';
 import { dictionary } from './components/variables';
 import _ from 'lodash'
 import Title from './components/Title';
-import Timer from './components/Timer';
+import Timer from './components/Timer/Timer.js';
+import Highscore from './components/Highscore/Highscore.js';
 
 
 export const WordleContext = createContext()
@@ -124,7 +125,8 @@ function guessTheWord(char) {
           {!gameOver && <Timer />}
           <Board />
           <Title />
-          <div className='guesses-counter'>Guesses: {guessCount}</div> {/* display the guess count */}
+          <div className='guesses-counter'>Guesses: {guessCount}</div> 
+          <Highscore/>
         </WordleContext.Provider>
       )}
     </>
